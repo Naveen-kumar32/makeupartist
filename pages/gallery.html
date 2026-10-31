@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | Sivasankari Makeup Artist</title>
+  <meta name="description" content="Bridal, reception, engagement and party makeup looks by Sivasankari, makeup artist in Chennai.">
+  <meta property="og:title" content="Gallery | Sivasankari Makeup Artist">
+  <meta property="og:description" content="Bridal, reception, engagement and party makeup looks by Sivasankari, makeup artist in Chennai.">
+<!--#include head-->
+</head>
+<body>
+<!--#include header-->
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i18n="navHome">Home</a><span aria-hidden="true">/</span><span data-i18n="navGallery">Gallery</span></nav>
+        <p class="eyebrow" data-i18n="galleryEyebrow">Gallery</p>
+        <h1 data-i18n="galleryTitle">Looks from real celebrations</h1>
+        <p class="lead" data-i18n="galleryLead">Brides and families I have had the joy of getting ready for their big day.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="gallery-bar">
+          <div class="filters" role="tablist" aria-label="Filter gallery">
+            <button class="filter active" data-filter="all" role="tab" aria-selected="true" data-i18n="catAll">All</button>
+            <button class="filter" data-filter="bridal" role="tab" aria-selected="false" data-i18n="catBridal">Bridal</button>
+            <button class="filter" data-filter="reception" role="tab" aria-selected="false" data-i18n="catReception">Reception</button>
+            <button class="filter" data-filter="engagement" role="tab" aria-selected="false" data-i18n="catEngagement">Engagement</button>
+            <button class="filter" data-filter="party" role="tab" aria-selected="false" data-i18n="catParty">Party</button>
+            <button class="filter" data-filter="saree" role="tab" aria-selected="false" data-i18n="catSaree">Saree draping</button>
+            <button class="filter" data-filter="hair" role="tab" aria-selected="false" data-i18n="catHair">Hairstyle</button>
+          </div>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
+
+        <div class="gallery-empty" id="galleryEmpty" hidden>
+          <p class="empty-title" data-i18n="emptyTitle">New photos are on their way</p>
+          <p data-i18n="emptyText">The gallery is being updated with recent looks.</p>
+          <a href="https://www.instagram.com/sivasankari_makeover_artist/" target="_blank" rel="noopener" class="link" data-i18n="emptyInsta">Meanwhile, see my work on Instagram →</a>
+        </div>
+
+        <div class="gallery-more">
+          <button class="btn btn-ghost" id="loadMore" type="button" hidden data-i18n="loadMore">Show more</button>
+        </div>
+      </div>
+    </section>
+
+<!--#include cta-->
+  </main>
+
+<!--#include footer-->
+<!--#include lightbox-->
+  <script src="/app.js"></script>
+</body>
+</html>

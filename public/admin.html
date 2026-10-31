@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Sign in</title>
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body { background: var(--blush-2); min-height: 100vh; }
+    .admin-head { background: var(--wine); color: #fff; }
+    .admin-head .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 12px; }
+    .admin-head h1 { color: #fff; font-size: 1.5rem; margin: 0; }
+    .admin-head a { color: rgba(255,255,255,.75); font-size: .9rem; margin-right: 14px; }
+    .admin-head button { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); border-radius: 999px; padding: 8px 16px; cursor: pointer; font: inherit; }
+    .login { max-width: 400px; margin: 10vh auto; }
+    .login .pw-wrap { position: relative; }
+    .login .pw-wrap button { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); border: 0; background: none; color: var(--muted); cursor: pointer; font: 500 .82rem var(--sans); padding: 6px; }
+    .tabs { display: flex; gap: 8px; margin: 28px 0 20px; flex-wrap: wrap; }
+    .count { display: inline-block; min-width: 20px; padding: 2px 6px; margin-left: 6px; border-radius: 999px; background: var(--rose); color: #fff; font-size: .75rem; }
+    .panel { background: #fff; border-radius: 20px; padding: 24px; border: 1px solid var(--line); margin-bottom: 24px; }
+    .panel h2 { font-size: 1.6rem; }
+    .up-row { display: grid; grid-template-columns: 2fr 1fr 2fr auto; gap: 12px; align-items: end; }
+    .admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .a-card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+    .a-card img { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--blush); }
+    .a-card .meta { padding: 10px 12px; display: grid; gap: 8px; }
+    .a-card .meta input, .a-card .meta select { padding: 8px 10px; font-size: .85rem; }
+    .a-card .actions { display: flex; gap: 6px; padding: 0 12px 12px; }
+    .a-card .actions button { flex: 1; padding: 9px 6px; border-radius: 10px; border: 1px solid var(--line); background: #fff; cursor: pointer; font: 500 .85rem var(--sans); }
+    .a-card .actions .save { background: var(--wine); color: #fff; border-color: var(--wine); }
+    .a-card .actions .save[disabled] { background: #fff; color: var(--muted); cursor: default; }
+    .a-card .del { color: #B03A2E; }
+    .empty-note { color: var(--muted); padding: 24px 0; text-align: center; grid-column: 1 / -1; }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+    .toolbar h2 { margin: 0; }
+    .toolbar select { width: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-weight: 500; color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; }
+    td select { padding: 6px 8px; font-size: .85rem; width: auto; }
+    .table-wrap { overflow-x: auto; }
+    @media (max-width: 760px) { .admin-head h1 { font-size: 1.2rem; } .admin-head a { display: none; } .up-row { grid-template-columns: 1fr; } .admin-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+  </style>
+</head>
+<body>
+  <header class="admin-head">
+    <div class="wrap">
+      <h1>Sivasankari · Admin</h1>
+      <div id="headActions" hidden>
+        <a href="/gallery" target="_blank" rel="noopener">View site</a>
+        <button id="logout" type="button">Sign out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <form class="form login" id="loginForm" hidden>
+      <h2>Sign in</h2>
+      <div class="field">
+        <label for="user">Username</label>
+        <input id="user" autocomplete="username" autocapitalize="off" spellcheck="false" required>
+      </div>
+      <div class="field">
+        <label for="pw">Password</label>
+        <div class="pw-wrap">
+          <input id="pw" type="password" autocomplete="current-password" required>
+          <button type="button" id="showPw">Show</button>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit" id="loginBtn">Sign in</button>
+      <p class="form-status err" id="loginStatus" role="alert"></p>
+    </form>
+
+    <div id="app" hidden>
+      <div class="tabs" role="tablist">
+        <button class="filter active" data-tab="gallery">Gallery <span class="count" id="cPhotos">0</span></button>
+        <button class="filter" data-tab="bookings">Booking enquiries <span class="count" id="cBookings">0</span></button>
+      </div>
+
+      <section id="tab-gallery">
+        <form class="panel" id="adminUpload">
+          <h2>Add photos</h2>
+          <div class="up-row">
+            <div class="field"><label for="aFiles">Photos (up to 20, 10 MB each)</label><input id="aFiles" type="file" name="photos" accept="image/jpeg,image/png,image/webp" multiple required></div>
+            <div class="field">
+              <label for="aCat">Type</label>
+              <select id="aCat" name="category"></select>
+            </div>
+            <div class="field"><label for="aCap">Caption (optional)</label><input id="aCap" name="caption" maxlength="140"></div>
+            <div class="field"><button class="btn btn-primary" type="submit" id="aBtn">Upload</button></div>
+          </div>
+          <div class="progress" id="aProgress" hidden><span></span></div>
+          <p class="form-status" id="aStatus" role="status"></p>
+        </form>
+
+        <div class="panel">
+          <div class="toolbar">
+            <h2>Photos on the website</h2>
+            <select id="catFilter" aria-label="Filter by type"><option value="all">All types</option></select>
+          </div>
+          <div class="admin-grid" id="photoGrid"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="tab-bookings" hidden>
+        <h2>Booking enquiries</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Received</th><th>Name</th><th>Mobile</th><th>Event</th><th>Venue</th><th>Note</th><th>Status</th></tr></thead>
+            <tbody id="bookingRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+  (() => {
+    const $ = (s) => document.querySelector(s);
+    const CATS = { bridal: 'Bridal', reception: 'Reception', engagement: 'Engagement', party: 'Party', saree: 'Saree draping', hair: 'Hairstyle', other: 'Other' };
+    const catOptions = (sel) => Object.entries(CATS).map(([v, l]) => `<option value="${v}" ${v === sel ? 'selected' : ''}>${l}</option>`).join('');
+    $('#aCat').innerHTML = catOptions('bridal');
+    $('#catFilter').innerHTML += catOptions();
+
+    let photos = [];
+
+    // The session lives in an HttpOnly cookie set by the server
+    const api = async (url, opts = {}) => {
+      const res = await fetch(url, { credentials: 'same-origin', ...opts });
+      const body = await res.json().catch(() => ({}));
+      if (res.status === 401 && !url.endsWith('/login')) { showLogin(); throw new Error('Session expired. Please sign in again.'); }
+      if (!res.ok) throw new Error(body.error || 'Something went wrong.');
+      return body;
+    };
+    const json = (method, data) => ({ method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+    const fmt = (iso) => new Date(iso).toLocaleString('en-IN', { day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' });
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+    function showLogin() {
+      document.title = 'Sign in';
+      $('#app').hidden = true; $('#headActions').hidden = true; $('#loginForm').hidden = false;
+      $('#user').focus();
+    }
+    function showApp() {
+      document.title = 'Admin · Sivasankari';
+      $('#loginForm').hidden = true; $('#app').hidden = false; $('#headActions').hidden = false;
+      refresh();
+    }
+
+    // ---------- login ----------
+    $('#showPw').addEventListener('click', (e) => {
+      const pw = $('#pw');
+      pw.type = pw.type === 'password' ? 'text' : 'password';
+      e.target.textContent = pw.type === 'password' ? 'Show' : 'Hide';
+    });
+
+    $('#loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      $('#loginStatus').textContent = '';
+      $('#loginBtn').disabled = true;
+      try {
+        await api('/api/admin/login', json('POST', { username: $('#user').value.trim(), password: $('#pw').value }));
+        $('#pw').value = '';
+        showApp();
+      } catch (err) {
+        $('#loginStatus').textContent = err.message;
+      } finally {
+        $('#loginBtn').disabled = false;
+      }
+    });
+
+    $('#logout').addEventListener('click', async () => {
+      await fetch('/api/admin/logout', { method: 'POST' }).catch(() => {});
+      showLogin();
+    });
+
+    // ---------- tabs ----------
+    document.querySelectorAll('[data-tab]').forEach((b) => b.addEventListener('click', () => {
+      document.querySelectorAll('[data-tab]').forEach((x) => x.classList.toggle('active', x === b));
+      ['gallery', 'bookings'].forEach((t) => ($('#tab-' + t).hidden = t !== b.dataset.tab));
+    }));
+
+    // ---------- gallery ----------
+    function card(p) {
+      const el = document.createElement('div');
+      el.className = 'a-card';
+      el.innerHTML = `
+        <a href="${esc(p.url)}" target="_blank" rel="noopener"><img src="${esc(p.url)}" alt="" loading="lazy"></a>
+        <div class="meta">
+          <select aria-label="Type">${catOptions(p.category)}</select>
+          <input placeholder="Caption" maxlength="140" value="${esc(p.caption)}" aria-label="Caption">
+        </div>
+        <div class="actions">
+          <button class="save" disabled>Save</button>
+          <button class="del">Remove</button>
+        </div>`;
+      const [sel, cap, save, del] = ['select', 'input', '.save', '.del'].map((s) => el.querySelector(s));
+      const dirty = () => (save.disabled = sel.value === p.category && cap.value === (p.caption || ''));
+      sel.addEventListener('change', dirty);
+      cap.addEventListener('input', dirty);
+      save.addEventListener('click', async () => {
+        try {
+          Object.assign(p, await api('/api/admin/gallery/' + p.id, json('PATCH', { category: sel.value, caption: cap.value })));
+          save.textContent = 'Saved ✓';
+          setTimeout(() => (save.textContent = 'Save'), 1500);
+          dirty();
+        } catch (err) { alert(err.message); }
+      });
+      del.addEventListener('click', async () => {
+        if (!confirm('Remove this photo from the website? This cannot be undone.')) return;
+        try {
+          await api('/api/admin/gallery/' + p.id, { method: 'DELETE' });
+          photos = photos.filter((x) => x !== p);
+          renderPhotos();
+        } catch (err) { alert(err.message); }
+      });
+      return el;
+    }
+
+    function renderPhotos() {
+      const f = $('#catFilter').value;
+      const list = f === 'all' ? photos : photos.filter((p) => p.category === f);
+      const grid = $('#photoGrid');
+      grid.innerHTML = list.length ? '' : '<p class="empty-note">No photos yet. Add some above.</p>';
+      list.forEach((p) => grid.append(card(p)));
+      $('#cPhotos').textContent = photos.length;
+    }
+    $('#catFilter').addEventListener('change', renderPhotos);
+
+    $('#adminUpload').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const status = $('#aStatus');
+      const bar = $('#aProgress');
+      if (!form.photos.files.length) { status.className = 'form-status err'; status.textContent = 'Please choose at least one photo.'; return; }
+
+      // XHR for upload progress on slow connections
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '/api/admin/gallery');
+      $('#aBtn').disabled = true;
+      bar.hidden = false; bar.firstElementChild.style.width = '0';
+      status.className = 'form-status'; status.textContent = 'Uploading…';
+      xhr.upload.onprogress = (ev) => { if (ev.lengthComputable) bar.firstElementChild.style.width = (ev.loaded / ev.total) * 100 + '%'; };
+      xhr.onloadend = () => {
+        $('#aBtn').disabled = false; bar.hidden = true;
+        let body = {};
+        try { body = JSON.parse(xhr.responseText); } catch {}
+        if (xhr.status === 401) return showLogin();
+        if (xhr.status >= 200 && xhr.status < 300) {
+          status.className = 'form-status ok'; status.textContent = `${body.count} photo(s) added to the website.`;
+          form.reset(); $('#aCat').value = 'bridal';
+          refresh();
+        } else {
+          status.className = 'form-status err'; status.textContent = body.error || 'Upload failed. Please try again.';
+        }
+      };
+      xhr.send(new FormData(form));
+    });
+
+    // ---------- bookings ----------
+    function renderBookings(bookings) {
+      $('#cBookings').textContent = bookings.filter((b) => b.status === 'new').length;
+      const rows = $('#bookingRows');
+      rows.innerHTML = bookings.length ? '' : '<tr><td colspan="7" class="empty-note">No enquiries yet.</td></tr>';
+      bookings.forEach((b) => {
+        const wa = b.phone.replace(/\D/g, '').replace(/^(\d{10})$/, '91$1');
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${fmt(b.createdAt)}</td><td>${esc(b.name)}</td>
+          <td><a href="https://wa.me/${esc(wa)}" target="_blank" rel="noopener">${esc(b.phone)}</a></td>
+          <td>${esc(b.eventType)}<br><small>${esc(b.eventDate)}</small></td>
+          <td>${esc(b.venue)}</td><td>${esc(b.message)}</td>
+          <td><select>${['new', 'contacted', 'confirmed', 'closed'].map((s) => `<option ${s === b.status ? 'selected' : ''}>${s}</option>`).join('')}</select></td>`;
+        tr.querySelector('select').addEventListener('change', async (e) => {
+          await api('/api/admin/bookings/' + b.id, json('PATCH', { status: e.target.value }));
+          refresh();
+        });
+        rows.append(tr);
+      });
+    }
+
+    async function refresh() {
+      const [gallery, bookings] = await Promise.all([api('/api/gallery'), api('/api/admin/bookings')]);
+      photos = gallery;
+      renderPhotos();
+      renderBookings(bookings);
+    }
+
+    // Already signed in? (cookie still valid)
+    api('/api/admin/me').then(showApp, showLogin);
+  })();
+  </script>
+</body>
+</html>

@@ -33,6 +33,11 @@ if (!ADMIN_USERNAME || !ADMIN_PASSWORD) {
 fs.mkdirSync(DATA_DIR, { recursive: true });
 fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 
+// First run: start the gallery with the sample photos in public/img/photos (see data/seed/gallery.json).
+// Once gallery.json exists, the admin page is the only thing that changes it.
+const GALLERY_SEED = path.join(DATA_DIR, 'seed', 'gallery.json');
+if (!fs.existsSync(GALLERY_FILE) && fs.existsSync(GALLERY_SEED)) fs.copyFileSync(GALLERY_SEED, GALLERY_FILE);
+
 // ---------- tiny JSON store ----------
 function readJson(file) {
   try {
@@ -250,7 +255,8 @@ app.delete('/api/admin/gallery/:id', requireAdmin, (req, res) => {
   const idx = gallery.findIndex((p) => p.id === req.params.id);
   if (idx === -1) return res.status(404).json({ error: 'Not found' });
   const [item] = gallery.splice(idx, 1);
-  fs.rm(path.join(UPLOAD_DIR, path.basename(item.file)), () => {});
+  // Sample photos (no `file`) live in public/img/photos and are only removed from the list.
+  if (item.file) fs.rm(path.join(UPLOAD_DIR, path.basename(item.file)), () => {});
   writeJson(GALLERY_FILE, gallery);
   res.json({ ok: true });
 });

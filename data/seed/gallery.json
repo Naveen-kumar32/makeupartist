@@ -1,0 +1,298 @@
+[
+  {
+    "id": "sample-south-01",
+    "url": "/img/photos/south-01.jpg",
+    "caption": "South Indian bridal look",
+    "category": "bridal",
+    "createdAt": "2026-01-01T00:59:30.000Z",
+    "source": "https://unsplash.com/photos/a-woman-in-a-sari-and-jewelry-posing-for-a-picture-wrRVsNyuCW4"
+  },
+  {
+    "id": "sample-look-01",
+    "url": "/img/photos/look-01.jpg",
+    "caption": "Bridal glam",
+    "category": "bridal",
+    "createdAt": "2026-01-01T00:59:00.000Z",
+    "source": "https://unsplash.com/photos/woman-in-traditional-red-bridal-attire-VPwSJhu5uhs"
+  },
+  {
+    "id": "sample-look-02",
+    "url": "/img/photos/look-02.jpg",
+    "caption": "Eye makeup detail",
+    "category": "other",
+    "createdAt": "2026-01-01T00:58:00.000Z",
+    "source": "https://unsplash.com/photos/a-woman-getting-her-make-up-done-with-a-brush-I3y-aJ4DWng"
+  },
+  {
+    "id": "sample-south-02",
+    "url": "/img/photos/south-02.jpg",
+    "caption": "Kanjivaram silk saree",
+    "category": "saree",
+    "createdAt": "2026-01-01T00:57:30.000Z",
+    "source": "https://unsplash.com/photos/a-woman-in-a-sari-posing-for-a-picture-Rm9DL9DmGi4"
+  },
+  {
+    "id": "sample-look-04",
+    "url": "/img/photos/look-04.jpg",
+    "caption": "Silk saree look",
+    "category": "saree",
+    "createdAt": "2026-01-01T00:56:00.000Z",
+    "source": "https://unsplash.com/photos/woman-in-sari-with-gold-jewelry-Xqa_NWl4xEY"
+  },
+  {
+    "id": "sample-south-03",
+    "url": "/img/photos/south-03.jpg",
+    "caption": "Bridal hair with fresh flowers",
+    "category": "hair",
+    "createdAt": "2026-01-01T00:55:30.000Z",
+    "source": "https://unsplash.com/photos/PCp7GIk3O94"
+  },
+  {
+    "id": "sample-look-05",
+    "url": "/img/photos/look-05.jpg",
+    "caption": "Reception look",
+    "category": "reception",
+    "createdAt": "2026-01-01T00:55:00.000Z",
+    "source": "https://unsplash.com/photos/a-woman-in-a-red-dress-with-a-flower-in-her-hair-oeKiBmplBtU"
+  },
+  {
+    "id": "sample-south-04",
+    "url": "/img/photos/south-04.jpg",
+    "caption": "Silk saree glam",
+    "category": "saree",
+    "createdAt": "2026-01-01T00:53:30.000Z",
+    "source": "https://unsplash.com/photos/a-woman-in-a-sari-poses-for-a-picture-YMAc9LaU7Zo"
+  },
+  {
+    "id": "sample-look-07",
+    "url": "/img/photos/look-07.jpg",
+    "caption": "Bridal makeup with nath",
+    "category": "bridal",
+    "createdAt": "2026-01-01T00:53:00.000Z",
+    "source": "https://unsplash.com/photos/a-woman-in-a-red-and-gold-bridal-outfit-Po-nggQqplE"
+  },
+  {
+    "id": "sample-south-05",
+    "url": "/img/photos/south-05.jpg",
+    "caption": "Mehendi and soft glam",
+    "category": "engagement",
+    "createdAt": "2026-01-01T00:51:30.000Z",
+    "source": "https://unsplash.com/photos/a-woman-holding-her-hands-up-to-her-face-zWxEWxVptM4"
+  },
+  {
+    "id": "sample-look-09",
+    "url": "/img/photos/look-09.jpg",
+    "caption": "Shimmer eyes",
+    "category": "other",
+    "createdAt": "2026-01-01T00:51:00.000Z",
+    "source": "https://unsplash.com/photos/woman-with-gold-ring-and-gold-ring-FQ8GTuGM590"
+  },
+  {
+    "id": "sample-look-10",
+    "url": "/img/photos/look-10.jpg",
+    "caption": "Bold bridal eyes",
+    "category": "bridal",
+    "createdAt": "2026-01-01T00:50:00.000Z",
+    "source": "https://unsplash.com/photos/woman-in-red-and-gold-sari-dress-zW7hVlt6Oa0"
+  },
+  {
+    "id": "sample-south-06",
+    "url": "/img/photos/south-06.jpg",
+    "caption": "Kerala kasavu saree",
+    "category": "saree",
+    "createdAt": "2026-01-01T00:49:30.000Z",
+    "source": "https://unsplash.com/photos/a-woman-in-a-yellow-dress-standing-in-front-of-a-building-vANQ6Qh1O70"
+  },
+  {
+    "id": "sample-look-11",
+    "url": "/img/photos/look-11.jpg",
+    "caption": "Kanjivaram saree look",
+    "category": "saree",
+    "createdAt": "2026-01-01T00:49:00.000Z",
+    "source": "https://unsplash.com/photos/woman-in-red-and-white-sari-standing-near-green-trees-during-daytime-rjgFxE3eARQ"
+  },
+  {
+    "id": "sample-look-12",
+    "url": "/img/photos/look-12.jpg",
+    "caption": "Bold editorial look",
+    "category": "party",
+    "createdAt": "2026-01-01T00:48:00.000Z",
+    "source": "https://unsplash.com/photos/woman-in-yellow-and-black-dress-with-gold-necklace-epqDo9CYE1k"
+  },
+  {
+    "id": "sample-south-07",
+    "url": "/img/photos/south-07.jpg",
+    "caption": "Festive silk saree look",
+    "category": "party",
+    "createdAt": "2026-01-01T00:47:30.000Z",
+    "source": "https://unsplash.com/photos/woman-in-blue-and-yellow-sari-dress-tjRs987fPfg"
+  },
+  {
+    "id": "sample-look-13",
+    "url": "/img/photos/look-13.jpg",
+    "caption": "Engagement couple",
+    "category": "engagement",
+    "createdAt": "2026-01-01T00:47:00.000Z",
+    "source": "https://unsplash.com/photos/a-man-and-woman-in-traditional-indian-attire-shqK5G-J-Ac"
+  },
+  {
+    "id": "sample-look-14",
+    "url": "/img/photos/look-14.jpg",
+    "caption": "Soft pink reception look",
+    "category": "reception",
+    "createdAt": "2026-01-01T00:46:00.000Z",
+    "source": "https://unsplash.com/photos/woman-in-white-and-red-floral-dress-wearing-gold-crown-inlZbiU4apA"
+  },
+  {
+    "id": "sample-south-08",
+    "url": "/img/photos/south-08.jpg",
+    "caption": "Kerala bride",
+    "category": "bridal",
+    "createdAt": "2026-01-01T00:45:30.000Z",
+    "source": "https://unsplash.com/photos/a-woman-in-a-white-and-red-sari-j7Ljsqhnwag"
+  },
+  {
+    "id": "sample-look-15",
+    "url": "/img/photos/look-15.jpg",
+    "caption": "Glowing skin",
+    "category": "other",
+    "createdAt": "2026-01-01T00:45:00.000Z",
+    "source": "https://unsplash.com/photos/woman-with-red-lipstick-and-gold-hoop-earrings-_hAaFD1ucfk"
+  },
+  {
+    "id": "sample-look-16",
+    "url": "/img/photos/look-16.jpg",
+    "caption": "Bridal portrait",
+    "category": "bridal",
+    "createdAt": "2026-01-01T00:44:00.000Z",
+    "source": "https://unsplash.com/photos/woman-in-red-and-gold-traditional-dress-LpumrlmEjhw"
+  },
+  {
+    "id": "sample-south-09",
+    "url": "/img/photos/south-09.jpg",
+    "caption": "Jasmine bun",
+    "category": "hair",
+    "createdAt": "2026-01-01T00:43:30.000Z",
+    "source": "https://unsplash.com/photos/elegant-white-jasmine-flowers-in-dark-hair-3-QBD68deHY"
+  },
+  {
+    "id": "sample-look-18",
+    "url": "/img/photos/look-18.jpg",
+    "caption": "Curls with fresh roses",
+    "category": "hair",
+    "createdAt": "2026-01-01T00:42:00.000Z",
+    "source": "https://unsplash.com/photos/a-woman-in-a-red-dress-with-a-red-rose-in-her-hair-fKZSH1fQIw8"
+  },
+  {
+    "id": "sample-south-10",
+    "url": "/img/photos/south-10.jpg",
+    "caption": "Saree party look",
+    "category": "party",
+    "createdAt": "2026-01-01T00:41:30.000Z",
+    "source": "https://unsplash.com/photos/woman-in-red-and-brown-sari-xTrp1WOq2Do"
+  },
+  {
+    "id": "sample-look-19",
+    "url": "/img/photos/look-19.jpg",
+    "caption": "Soft glam",
+    "category": "other",
+    "createdAt": "2026-01-01T00:41:00.000Z",
+    "source": "https://unsplash.com/photos/woman-with-pink-lipstick-and-white-shirt-ajDUxve6clA"
+  },
+  {
+    "id": "sample-look-20",
+    "url": "/img/photos/look-20.jpg",
+    "caption": "Bridal look in red",
+    "category": "bridal",
+    "createdAt": "2026-01-01T00:40:00.000Z",
+    "source": "https://unsplash.com/photos/woman-in-red-bridal-outfit-ohENjR9w0bk"
+  },
+  {
+    "id": "sample-south-11",
+    "url": "/img/photos/south-11.jpg",
+    "caption": "Kerala set saree",
+    "category": "saree",
+    "createdAt": "2026-01-01T00:39:30.000Z",
+    "source": "https://unsplash.com/photos/women-in-traditional-sarees-F7kX4z1hrfU"
+  },
+  {
+    "id": "sample-look-22",
+    "url": "/img/photos/look-22.jpg",
+    "caption": "Colour editorial",
+    "category": "other",
+    "createdAt": "2026-01-01T00:38:00.000Z",
+    "source": "https://unsplash.com/photos/a-woman-with-a-pink-and-purple-make-up-on-her-face-0o4QY48B-r0"
+  },
+  {
+    "id": "sample-south-12",
+    "url": "/img/photos/south-12.jpg",
+    "caption": "Gajra bun",
+    "category": "hair",
+    "createdAt": "2026-01-01T00:37:30.000Z",
+    "source": "https://unsplash.com/photos/woman-with-white-flowers-in-her-dark-hair-hs5IsRAFgMo"
+  },
+  {
+    "id": "sample-look-23",
+    "url": "/img/photos/look-23.jpg",
+    "caption": "Bridal portrait",
+    "category": "bridal",
+    "createdAt": "2026-01-01T00:37:00.000Z",
+    "source": "https://unsplash.com/photos/woman-wearing-wedding-sari-looking-downwards-T-PUQaJ8YEw"
+  },
+  {
+    "id": "sample-look-24",
+    "url": "/img/photos/look-24.jpg",
+    "caption": "Getting ready",
+    "category": "reception",
+    "createdAt": "2026-01-01T00:36:00.000Z",
+    "source": "https://unsplash.com/photos/woman-in-red-and-gold-sari-jQ3UdoWiFis"
+  },
+  {
+    "id": "sample-south-13",
+    "url": "/img/photos/south-13.jpg",
+    "caption": "Jasmine jadai setting",
+    "category": "hair",
+    "createdAt": "2026-01-01T00:35:30.000Z",
+    "source": "https://unsplash.com/photos/hands-adjusting-gold-floral-hair-ornaments-650cwER_Wco"
+  },
+  {
+    "id": "sample-look-26",
+    "url": "/img/photos/look-26.jpg",
+    "caption": "Bridal lehenga",
+    "category": "bridal",
+    "createdAt": "2026-01-01T00:34:00.000Z",
+    "source": "https://unsplash.com/photos/woman-in-red-and-gold-sari-dress-Uv0BoKKdxos"
+  },
+  {
+    "id": "sample-south-14",
+    "url": "/img/photos/south-14.jpg",
+    "caption": "Pastel silk saree",
+    "category": "party",
+    "createdAt": "2026-01-01T00:33:30.000Z",
+    "source": "https://unsplash.com/photos/woman-in-green-and-white-dress-A7H3qmJTNJc"
+  },
+  {
+    "id": "sample-look-27",
+    "url": "/img/photos/look-27.jpg",
+    "caption": "Eyeshadow application",
+    "category": "other",
+    "createdAt": "2026-01-01T00:33:00.000Z",
+    "source": "https://unsplash.com/photos/a-woman-is-putting-makeup-on-her-face-Bv8pYo9RJno"
+  },
+  {
+    "id": "sample-look-28",
+    "url": "/img/photos/look-28.jpg",
+    "caption": "Bridal dupatta setting",
+    "category": "bridal",
+    "createdAt": "2026-01-01T00:32:00.000Z",
+    "source": "https://unsplash.com/photos/woman-in-red-and-gold-floral-hijab-lAY2TAhN06k"
+  },
+  {
+    "id": "sample-look-30",
+    "url": "/img/photos/look-30.jpg",
+    "caption": "Full bridal look",
+    "category": "bridal",
+    "createdAt": "2026-01-01T00:30:00.000Z",
+    "source": "https://unsplash.com/photos/a-woman-in-a-red-and-gold-bridal-outfit-2DZmm6QKFQE"
+  }
+]

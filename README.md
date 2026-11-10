@@ -50,7 +50,9 @@ Username and password login. Add photos (up to 20 at a time), change a photo's t
 
 1. **Logo**: replace `public/img/logo.svg` (currently a placeholder monogram) with the real logo.
 2. **Portrait**: add Sivasankari's photo as `public/img/portrait.jpg` and update the `<img>` in the About section of `public/index.html`.
-3. **Gallery**: sign in at `/admin` and upload the first set of photos (Instagram photos may be reused; the questionnaire answered "Yes").
+3. **Gallery**: sign in at `/admin` and upload the first set of photos (Instagram photos may be reused; the questionnaire answered "Yes"). Until then the gallery starts with 30 sample photos from Unsplash (`public/img/photos/look-*.jpg`, listed in `data/seed/gallery.json`, copied into `data/gallery.json` the first time the server starts). Remove them from `/admin` as real photos are added.
+3a. **Hero photos**: the home arch and the page banners (services, gallery, about, FAQ, contact) use Unsplash photos in `public/img/photos/` (`hero-bride.jpg`, `banner-*.jpg`). To change one, edit `--hero-img` on the `<section class="page-hero has-photo">` of that page, or the `<img class="arch-img">` in `pages/home.html`.
+3b. **Sample photos**: they are free under the Unsplash License (no credit required; each one's source page is in `data/seed/gallery.json`). They show models, not Sivasankari's clients, so replace them with her real work before launch: the gallery says "Looks from real celebrations".
 4. **Email**: `sivasankari.makeupartist@gmail.com` is used on the site. Create that Gmail account first (questionnaire Q46).
 5. Keep `.env` private. Never commit it or send it in a public channel.
 6. Serve the site over HTTPS so the login cookie is sent securely.

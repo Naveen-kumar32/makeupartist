@@ -33,7 +33,7 @@
     offerTitle: 'பண்டிகை சலுகைகள்', offerText: 'மணப்பெண் மற்றும் குடும்ப புக்கிங்கிற்கான சீசன் சலுகைகள் பற்றிக் கேளுங்கள்.', offerCta: 'இப்போதே கேளுங்கள்',
     galleryEyebrow: 'கேலரி', galleryTitle: 'உண்மையான கொண்டாட்டங்களின் தோற்றங்கள்',
     galleryLead: 'அவர்களின் முக்கியமான நாளுக்கு நான் அலங்கரித்த மணப்பெண்களும் குடும்பத்தினரும்.',
-    catAll: 'அனைத்தும்', catBridal: 'மணப்பெண்', catReception: 'ரிசப்ஷன்', catEngagement: 'நிச்சயதார்த்தம்', catParty: 'பார்ட்டி', catSaree: 'புடவை டிரேப்பிங்', catHair: 'ஹேர்ஸ்டைல்',
+    catAll: 'அனைத்தும்', catBridal: 'மணப்பெண்', catReception: 'ரிசப்ஷன்', catEngagement: 'நிச்சயதார்த்தம்', catBaby: 'வளைகாப்பு', catParty: 'பார்ட்டி', catSaree: 'புடவை டிரேப்பிங்', catHair: 'ஹேர்ஸ்டைல்',
     emptyTitle: 'புதிய புகைப்படங்கள் விரைவில்',
     emptyText: 'சமீபத்திய தோற்றங்களுடன் கேலரி புதுப்பிக்கப்படுகிறது.',
     emptyInsta: 'அதுவரை, என் வேலைகளை இன்ஸ்டாகிராமில் பாருங்கள் →',
@@ -87,14 +87,14 @@
       langBtn: 'தமிழ்',
       needFields: 'Please fill in your name, mobile number and event date.',
       bookOk: 'Opening WhatsApp… If it does not open, call +91 73051 46407.',
-      cats: { bridal: 'Bridal', reception: 'Reception', engagement: 'Engagement', party: 'Party', saree: 'Saree draping', hair: 'Hairstyle', other: 'Other' },
+      cats: { bridal: 'Bridal', reception: 'Reception', engagement: 'Engagement', baby: 'Baby shower', party: 'Party', saree: 'Saree draping', hair: 'Hairstyle', other: 'Other' },
       wa: (d) => `Hello Sivasankari! I'd like to book makeup.\n\nName: ${d.name}\nMobile: ${d.phone}\nEvent date: ${d.eventDate}\nEvent: ${d.eventType}\nVenue: ${d.venue || '-'}${d.message ? `\nNote: ${d.message}` : ''}`,
     },
     ta: {
       langBtn: 'English',
       needFields: 'உங்கள் பெயர், மொபைல் எண், நிகழ்ச்சி தேதியை நிரப்புங்கள்.',
       bookOk: 'வாட்ஸ்அப் திறக்கிறது… திறக்கவில்லை என்றால் +91 73051 46407 அழையுங்கள்.',
-      cats: { bridal: 'மணப்பெண்', reception: 'ரிசப்ஷன்', engagement: 'நிச்சயதார்த்தம்', party: 'பார்ட்டி', saree: 'புடவை டிரேப்பிங்', hair: 'ஹேர்ஸ்டைல்', other: 'மற்றவை' },
+      cats: { bridal: 'மணப்பெண்', reception: 'ரிசப்ஷன்', engagement: 'நிச்சயதார்த்தம்', baby: 'வளைகாப்பு', party: 'பார்ட்டி', saree: 'புடவை டிரேப்பிங்', hair: 'ஹேர்ஸ்டைல்', other: 'மற்றவை' },
       wa: (d) => `வணக்கம் சிவசங்கரி! மேக்கப் புக் செய்ய விரும்புகிறேன்.\n\nபெயர்: ${d.name}\nமொபைல்: ${d.phone}\nநிகழ்ச்சி தேதி: ${d.eventDate}\nநிகழ்ச்சி: ${d.eventType}\nஇடம்: ${d.venue || '-'}${d.message ? `\nகுறிப்பு: ${d.message}` : ''}`,
     },
   };
@@ -243,6 +243,12 @@
       const res = await fetch('/api/gallery');
       if (res.ok) photos = await res.json();
     } catch {}
+    // Hide filter buttons for categories that have no photos yet
+    if (photos.length) {
+      $$('.filter').forEach((b) => {
+        if (b.dataset.filter !== 'all') b.hidden = !photos.some((p) => p.category === b.dataset.filter);
+      });
+    }
     renderGallery();
   }
 

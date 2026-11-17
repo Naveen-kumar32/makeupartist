@@ -48,11 +48,12 @@ Username and password login. Add photos (up to 20 at a time), change a photo's t
 
 ## Before going live
 
-1. **Logo**: replace `public/img/logo.svg` (currently a placeholder monogram) with the real logo.
+1. **Logo**: done. The original is `public/img/logo/image.png`; the site uses trimmed copies made from it (`logo.png` for header/footer/admin, `logo-512.png` for Google, `favicon-32.png`, `favicon-192.png`, `apple-touch-icon.png`). If the logo changes, regenerate those from the new file.
 2. **Portrait**: add Sivasankari's photo as `public/img/portrait.jpg` and update the `<img>` in the About section of `public/index.html`.
-3. **Gallery**: sign in at `/admin` and upload the first set of photos (Instagram photos may be reused; the questionnaire answered "Yes"). Until then the gallery starts with 30 sample photos from Unsplash (`public/img/photos/look-*.jpg`, listed in `data/seed/gallery.json`, copied into `data/gallery.json` the first time the server starts). Remove them from `/admin` as real photos are added.
+3. **Gallery**: add more of her photos at `/admin` as they come in.
 3a. **Hero photos**: the home arch and the page banners (services, gallery, about, FAQ, contact) use Unsplash photos in `public/img/photos/` (`hero-bride.jpg`, `banner-*.jpg`). To change one, edit `--hero-img` on the `<section class="page-hero has-photo">` of that page, or the `<img class="arch-img">` in `pages/home.html`.
-3b. **Sample photos**: they are free under the Unsplash License (no credit required; each one's source page is in `data/seed/gallery.json`). They show models, not Sivasankari's clients, so replace them with her real work before launch: the gallery says "Looks from real celebrations".
+3c. **Client photos**: the gallery shows only Sivasankari's own photos (22, from the client's Google Drive folder), stored in `public/img/photos/client-*.jpg` and lightly retouched (levels, colour, sharpening, a few crops). Gallery filter buttons with no photos are hidden automatically. Her photos are also on the Bridal (signature), Engagement, Reception, Baby shower, Saree and Hairstyling service cards; Party, Bridesmaid and Groom cards, the page banners and the home hero still use Unsplash photos.
+3b. **Unsplash photos**: free under the Unsplash License (no credit required). Replace them with her own photos when available.
 4. **Email**: `sivasankari.makeupartist@gmail.com` is used on the site. Create that Gmail account first (questionnaire Q46).
 5. Keep `.env` private. Never commit it or send it in a public channel.
 6. Serve the site over HTTPS so the login cookie is sent securely.

@@ -6,7 +6,9 @@
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="referrer" content="no-referrer">
   <title>Sign in</title>
-  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/img/logo/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/img/logo/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/img/logo/apple-touch-icon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <style>
@@ -43,13 +45,15 @@
     th { font-weight: 500; color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; }
     td select { padding: 6px 8px; font-size: .85rem; width: auto; }
     .table-wrap { overflow-x: auto; }
+    .admin-head h1 { display: flex; align-items: center; gap: 10px; }
+    .admin-logo { width: 32px; height: 32px; }
     @media (max-width: 760px) { .admin-head h1 { font-size: 1.2rem; } .admin-head a { display: none; } .up-row { grid-template-columns: 1fr; } .admin-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
   </style>
 </head>
 <body>
   <header class="admin-head">
     <div class="wrap">
-      <h1>Sivasankari · Admin</h1>
+      <h1><img src="/img/logo/logo.png" alt="" width="32" height="32" class="admin-logo">Sivasankari · Admin</h1>
       <div id="headActions" hidden>
         <a href="/gallery" target="_blank" rel="noopener">View site</a>
         <button id="logout" type="button">Sign out</button>
@@ -59,6 +63,7 @@
 
   <main class="wrap">
     <form class="form login" id="loginForm" hidden>
+      <img src="/img/logo/logo.png" alt="Sivasankari Makeup Artist" width="64" height="64" style="display:block;margin-bottom:12px">
       <h2>Sign in</h2>
       <div class="field">
         <label for="user">Username</label>
@@ -121,7 +126,7 @@
   <script>
   (() => {
     const $ = (s) => document.querySelector(s);
-    const CATS = { bridal: 'Bridal', reception: 'Reception', engagement: 'Engagement', party: 'Party', saree: 'Saree draping', hair: 'Hairstyle', other: 'Other' };
+    const CATS = { bridal: 'Bridal', reception: 'Reception', engagement: 'Engagement', baby: 'Baby shower', party: 'Party', saree: 'Saree draping', hair: 'Hairstyle', other: 'Other' };
     const catOptions = (sel) => Object.entries(CATS).map(([v, l]) => `<option value="${v}" ${v === sel ? 'selected' : ''}>${l}</option>`).join('');
     $('#aCat').innerHTML = catOptions('bridal');
     $('#catFilter').innerHTML += catOptions();

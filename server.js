@@ -19,7 +19,7 @@ const UPLOAD_DIR = path.join(__dirname, 'uploads');
 const GALLERY_FILE = path.join(DATA_DIR, 'gallery.json');
 const BOOKINGS_FILE = path.join(DATA_DIR, 'bookings.json');
 
-const CATEGORIES = ['bridal', 'reception', 'engagement', 'party', 'saree', 'hair', 'other'];
+const CATEGORIES = ['bridal', 'reception', 'engagement', 'baby', 'party', 'saree', 'hair', 'other'];
 const MAX_FILE_MB = 10;
 const MAX_FILES_PER_UPLOAD = 20;
 const SESSION_DAYS = 7;

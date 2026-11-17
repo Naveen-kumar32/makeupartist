@@ -317,7 +317,6 @@ html[lang="ta"] .faq summary { font-size: 1.1rem; }
 .footer p { margin-bottom: .6em; }
 .footer .muted { color: rgba(255, 255, 255, .5); }
 .footer-tag { margin: 18px 0; max-width: 26em; }
-.brand-light img { filter: brightness(0) invert(1); }
 .social { display: flex; gap: 10px; }
 .social a { width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .2); display: grid; place-items: center; transition: background .2s; }
 .social a:hover { background: var(--wine-2); }

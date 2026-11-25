@@ -30,7 +30,7 @@ To change the password, edit `.env` and restart the server. Signing in sets a se
 | `/gallery` | Full gallery with category filters and a full-screen viewer (swipe on mobile) |
 | `/about` | About Sivasankari, brands used, key numbers |
 | `/faq` | Frequently asked questions |
-| `/contact` | Booking form (opens WhatsApp and saves a copy to the admin page), contact details, map |
+| `/contact` | Booking form (opens WhatsApp and saves a copy to the admin page), contact details (no street address or map, by request) |
 | `/admin` | Private gallery and booking manager (see below) |
 
 Every page has an EN / தமிழ் switch in the header, and the chosen language is remembered across pages.

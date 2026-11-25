@@ -120,11 +120,7 @@ html[lang="ta"] .brand-sub { letter-spacing: .02em; font-size: .75rem; }
 }
 .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
 .lead { font-size: 1.15rem; color: var(--muted); max-width: 36em; }
-.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin: 30px 0 44px; }
-.hero-stats { display: flex; gap: 40px; list-style: none; padding: 0; margin: 0; }
-.hero-stats li { display: flex; flex-direction: column; }
-.hero-stats strong { font-family: var(--serif); font-size: 2.4rem; color: var(--wine); line-height: 1; }
-.hero-stats span { font-size: .85rem; color: var(--muted); margin-top: 6px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin: 30px 0 0; }
 
 .hero-art { position: relative; justify-self: center; width: min(100%, 400px); }
 .arch {
@@ -310,9 +306,10 @@ html[lang="ta"] .faq summary { font-size: 1.1rem; }
 
 /* ---------- footer ---------- */
 .footer { background: #2B0F1E; color: rgba(255, 255, 255, .78); padding: 80px 0 28px; font-size: .95rem; }
-.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr minmax(max-content, 1.2fr) 1fr; gap: 48px 56px; }
 .footer h4 { color: var(--champagne); font-family: var(--sans); font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; margin-bottom: 16px; }
-.footer a { text-decoration: none; overflow-wrap: anywhere; }
+.footer a { text-decoration: none; }
+.footer-email { white-space: nowrap; } /* keep the email on one line */
 .footer a:hover { color: #fff; }
 .footer p { margin-bottom: .6em; }
 .footer .muted { color: rgba(255, 255, 255, .5); }
@@ -320,7 +317,9 @@ html[lang="ta"] .faq summary { font-size: 1.1rem; }
 .social { display: flex; gap: 10px; }
 .social a { width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .2); display: grid; place-items: center; transition: background .2s; }
 .social a:hover { background: var(--wine-2); }
-.footer-bottom { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(255, 255, 255, .12); margin-top: 56px; padding-top: 24px; font-size: .85rem; }
+.footer-bottom { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 56px; padding-top: 24px; font-size: .85rem; }
+/* divider drawn inside the page padding so it lines up with the text above */
+.footer-bottom::before { content: ''; position: absolute; top: 0; left: 24px; right: 24px; border-top: 1px solid rgba(255, 255, 255, .12); }
 .footer-bottom p { margin: 0; }
 .credit strong { color: var(--champagne); font-weight: 500; }
 
@@ -427,10 +426,23 @@ html[lang="ta"] .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.7rem); }
 
 .stats-band { padding: 64px 0; }
 .stats { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
-.stats strong { display: block; font-family: var(--serif); font-size: 2.8rem; color: var(--wine); line-height: 1.1; }
-.stats li { min-width: 0; }
-.stats span { color: var(--muted); font-size: .92rem; }
-html[lang="ta"] .stats strong { font-size: 2rem; }
+.stats li {
+  min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 190px; padding: 32px 20px; background: #fff; border: 1px solid var(--line); border-radius: 24px;
+}
+.stats strong {
+  display: inline-flex; align-items: center; font-family: var(--serif); font-weight: 500; font-size: 3.8rem; color: var(--wine); line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums; /* even-height digits: no dipping 5 or tall 8 */
+}
+.stat-plus { font-family: var(--sans); font-size: .46em; font-weight: 400; color: var(--rose); margin-left: 3px; transform: translateY(-.12em); }
+.stats .stat-word { transform: scale(.8); } /* smaller word, same box height, so labels stay level */
+.stat-label { display: block; color: var(--muted); font-size: .8rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; line-height: 1.5; margin-top: 18px; }
+.stats .stat-feature { background: linear-gradient(170deg, var(--wine), var(--wine-2)); border-color: transparent; }
+.stat-feature strong { color: #fff; }
+.stat-feature .stat-plus { color: var(--champagne); }
+.stat-feature .stat-label { color: rgba(255, 255, 255, .85); }
+html[lang="ta"] .stats strong { font-size: 2.6rem; }
+html[lang="ta"] .stat-label { letter-spacing: .02em; text-transform: none; font-size: .9rem; }
 
 .faq-more {
   margin-top: 48px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
@@ -446,14 +458,12 @@ html[lang="ta"] .stats strong { font-size: 2rem; }
   transition: border-color .2s, transform .2s;
 }
 a.contact-card:hover { border-color: var(--rose); transform: translateY(-2px); }
-.contact-card > span:last-child { min-width: 0; overflow-wrap: anywhere; font-weight: 500; color: var(--ink); }
+.contact-card > span:last-child { min-width: 0; overflow-wrap: break-word; font-weight: 500; color: var(--ink); }
+.cc-email { white-space: nowrap; }
 .contact-card small { display: block; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--rose); font-weight: 500; }
 html[lang="ta"] .contact-card small { letter-spacing: 0; }
 .cc-icon { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--blush); color: var(--wine); display: grid; place-items: center; }
 
-.map-section { padding: 0 0 104px; }
-.map { margin-top: 20px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--blush-2); }
-.map iframe { display: block; width: 100%; height: 380px; border: 0; }
 
 /* ---------- reveal ---------- */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
@@ -469,6 +479,7 @@ html[lang="ta"] .contact-card small { letter-spacing: 0; }
   .cards { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid > :first-child { grid-column: 1 / -1; } /* logo block on its own row */
   .stats { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 880px) {
@@ -493,8 +504,6 @@ html[lang="ta"] .contact-card small { letter-spacing: 0; }
   .hide-sm { display: none; }
   .brand-name { font-size: 1.35rem; }
   .brand img { width: 38px; height: 38px; }
-  .hero-stats { gap: 24px; }
-  .hero-stats strong { font-size: 2rem; }
   .cards, .steps, .footer-grid { grid-template-columns: 1fr; }
   .card-feature { grid-row: auto; min-height: 240px; }
   .cards-photo .card-feature { min-height: 460px; }
@@ -507,14 +516,22 @@ html[lang="ta"] .contact-card small { letter-spacing: 0; }
   .g-item { margin-bottom: 10px; }
   .lb-nav { width: 42px; height: 42px; }
   .lb-prev { left: 8px; } .lb-next { right: 8px; }
-  .footer-bottom { flex-direction: column; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 40px; padding-top: 28px; }
+  .footer-bottom::before { left: 16px; right: 16px; }
+  .footer { padding-top: 64px; }
+  .footer-grid { gap: 36px; }
+  .cc-email { font-size: .88rem; }
   .page-hero { padding: 40px 0 36px; }
   .page-hero.has-photo { padding: 56px 0 52px; background: linear-gradient(180deg, rgba(43, 14, 29, .72) 0%, rgba(74, 22, 48, .9) 100%), var(--hero-img) var(--hero-pos, center) / cover no-repeat, var(--wine); }
   .crumbs { margin-bottom: 18px; }
-  .map iframe { height: 300px; }
-  .stats strong { font-size: 2.2rem; }
-  html[lang="ta"] .stats strong { font-size: 1.5rem; }
-  .map-section { padding-bottom: 76px; }
+  .stats { gap: 14px; }
+  .stats li { min-height: 150px; padding: 24px 14px; border-radius: 20px; }
+  .stats strong { font-size: 2.8rem; }
+  .stat-label { letter-spacing: .14em; font-size: .72rem; margin-top: 12px; }
+  html[lang="ta"] .stats strong { font-size: 1.6rem; }
   .cta-actions .btn { flex: 1; }
   .faq-more, .offer { padding: 22px 20px; }
+}
+@media (max-width: 380px) {
+  .footer-email, .cc-email { font-size: .84rem; }
 }

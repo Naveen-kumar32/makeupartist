@@ -1,4 +1,4 @@
-// Sivasankari Makeup Artist — front-end
+// Sivasankari Makeovers — front-end
 (() => {
   const WHATSAPP = '917305146407';
   const PAGE_SIZE = 12;
@@ -6,7 +6,7 @@
   // ---------- translations ----------
   // English text lives in index.html; only Tamil is listed here.
   const TA = {
-    brandSub: 'மேக்கப் ஆர்டிஸ்ட்',
+    brandSub: 'மேக்கோவர்ஸ்',
     navHome: 'முகப்பு', navServices: 'சேவைகள்', navGallery: 'கேலரி', navAbout: 'என்னைப் பற்றி', navFaq: 'கேள்விகள்', navContact: 'தொடர்பு',
     ctaBook: 'தேதி புக் செய்ய', ctaWhatsapp: 'வாட்ஸ்அப் செய்ய',
     heroEyebrow: 'மணப்பெண் மேக்கப் · சென்னை மற்றும் சுற்றுவட்டாரம்',
@@ -131,6 +131,17 @@
   const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  // Back to top: the header is sticky, so jumping to it as an anchor barely scrolls.
+  // Scroll the page itself to the top instead.
+  $$('.back-top').forEach((a) =>
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      $('.brand')?.focus({ preventScroll: true }); // keep keyboard focus at the top too
+    })
+  );
 
   menuBtn.addEventListener('click', () => {
     const open = nav.classList.toggle('open');

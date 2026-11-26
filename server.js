@@ -1,4 +1,4 @@
-// Sivasankari Makeup Artist — website server
+// Sivasankari Makeovers — website server
 // Serves the static site, the public gallery/booking API and the private admin API.
 // Storage is plain JSON files + an uploads folder, so it runs anywhere Node runs.
 
@@ -277,4 +277,4 @@ app.patch('/api/admin/bookings/:id', requireAdmin, (req, res) => {
 app.use('/api', (req, res) => res.status(404).json({ error: 'Not found' }));
 app.use((req, res) => res.status(404).type('html').send(renderPage('404')));
 
-app.listen(PORT, () => console.log(`Sivasankari Makeup Artist site running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Sivasankari Makeovers site running on http://localhost:${PORT}`));

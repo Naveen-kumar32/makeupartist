@@ -1,4 +1,4 @@
-# Sivasankari Makeup Artist: website
+# Sivasankari Makeovers: website
 
 Bilingual (English / Tamil) website for **sivasankarimakeupartist.in**, with a private admin page for managing the gallery.
 

@@ -1,7 +1,7 @@
 {
   "name": "sivasankari-makeup-artist",
   "version": "1.0.0",
-  "description": "Website for Sivasankari Makeup Artist with a private admin-managed gallery",
+  "description": "Website for Sivasankari Makeovers with a private admin-managed gallery",
   "main": "server.js",
   "private": true,
   "scripts": {

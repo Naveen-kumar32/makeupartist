@@ -54,7 +54,7 @@ Username and password login. Add photos (up to 20 at a time), change a photo's t
 3a. **Hero photos**: the home arch and the page banners (services, gallery, about, FAQ, contact) use Unsplash photos in `public/img/photos/` (`hero-bride.jpg`, `banner-*.jpg`). To change one, edit `--hero-img` on the `<section class="page-hero has-photo">` of that page, or the `<img class="arch-img">` in `pages/home.html`.
 3c. **Client photos**: the gallery shows only Sivasankari's own photos (22, from the client's Google Drive folder), stored in `public/img/photos/client-*.jpg` and lightly retouched (levels, colour, sharpening, a few crops). Gallery filter buttons with no photos are hidden automatically. Her photos are also on the Bridal (signature), Engagement, Reception, Baby shower, Saree and Hairstyling service cards; Party, Bridesmaid and Groom cards, the page banners and the home hero still use Unsplash photos.
 3b. **Unsplash photos**: free under the Unsplash License (no credit required). Replace them with her own photos when available.
-4. **Email**: `sivasankari.makeupartist@gmail.com` is used on the site. Create that Gmail account first (questionnaire Q46).
+4. **Email**: `sivasankarimakeovers@gmail.com` is used on the site (footer, contact page, Google business details).
 5. Keep `.env` private. Never commit it or send it in a public channel.
 6. Serve the site over HTTPS so the login cookie is sent securely.
 
